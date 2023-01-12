@@ -6,8 +6,8 @@ public class AppHandler : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            ScreenshotHandler.TakeScreenshot_Static(500, 500);
-        }
+        // if (Input.GetKeyDown(KeyCode.Space)) {
+        //     ScreenshotHandlerURP.TakeScreenshot_Static(500, 500);
+        // }
     }
 }
