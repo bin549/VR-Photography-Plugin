@@ -15,13 +15,16 @@ public class GridBuildingSystem : MonoBehaviour
     public static GridBuildingSystem Instance { get; private set; }
     public event EventHandler OnObjectPlaced;
     public event EventHandler OnSelectedChanged;
+    public LineRenderer aimLineRenderer;
+    public Transform obj1;
+    public Transform obj2;
 
     private void Awake() {
         int gridWidth = 10;
         int gridHeight = 10;
         float cellSize = 10f;
         grid = new GridXZ<GridObject>(gridWidth, gridHeight, cellSize, new Vector3(0, 0, 0), (GridXZ<GridObject> g, int x, int y) => new GridObject(g, x, y));
-        placedObjectTypeSO = null;// placedObjectTypeSOList[0];
+        placedObjectTypeSO = placedObjectTypeSOList[0];
     }
 
     public Quaternion GetPlacedObjectRotation() {
@@ -89,8 +92,15 @@ public class GridBuildingSystem : MonoBehaviour
     }
 
     private void Update() {
+        aimLineRenderer.enabled = true;
+        aimLineRenderer.SetPosition(0, obj1.position);
+        aimLineRenderer.sharedMaterial.color = Color.green;
+    // aimLineRenderer.sharedMaterial.color = hitEnemy ? Color.green : Color.white;
+
+        Vector3 mousePosition = Mouse3D.GetMouseWorldPosition();
+        aimLineRenderer.SetPosition(1, mousePosition);
+
         if (Input.GetMouseButtonDown(0)) {
-            Vector3 mousePosition = Mouse3D.GetMouseWorldPosition();
             grid.GetXZ(mousePosition, out int x, out int y);
             Vector2Int placedObjectOrigin = new Vector2Int(x, y);
             bool canBuild = true;
@@ -120,7 +130,6 @@ public class GridBuildingSystem : MonoBehaviour
                 }
             }
         if (Input.GetMouseButtonDown(1)) {
-            Vector3 mousePosition = Mouse3D.GetMouseWorldPosition();
             if (grid.GetGridObject(mousePosition) != null) {
                 PlacedObject placedObject = grid.GetGridObject(mousePosition).GetPlacedObject();
                 if (placedObject != null) {
