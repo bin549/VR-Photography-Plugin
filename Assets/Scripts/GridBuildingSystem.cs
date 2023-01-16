@@ -18,6 +18,9 @@ public class GridBuildingSystem : MonoBehaviour
     public LineRenderer aimLineRenderer;
     public Transform obj1;
     public Transform obj2;
+    [SerializeField] private GameObject visual;
+    public float turnSpeed = 20f;
+
 
     private void Awake() {
         int gridWidth = 10;
@@ -25,6 +28,10 @@ public class GridBuildingSystem : MonoBehaviour
         float cellSize = 10f;
         grid = new GridXZ<GridObject>(gridWidth, gridHeight, cellSize, new Vector3(0, 0, 0), (GridXZ<GridObject> g, int x, int y) => new GridObject(g, x, y));
         placedObjectTypeSO = placedObjectTypeSOList[0];
+        visual = Instantiate(visual, Vector3.zero, Quaternion.identity);
+        // visual.transform.parent = transform;
+        visual.transform.localPosition = Vector3.zero;
+        visual.transform.localEulerAngles = Vector3.zero;
     }
 
     public Quaternion GetPlacedObjectRotation() {
@@ -97,8 +104,18 @@ public class GridBuildingSystem : MonoBehaviour
         aimLineRenderer.sharedMaterial.color = Color.green;
     // aimLineRenderer.sharedMaterial.color = hitEnemy ? Color.green : Color.white;
 
+
+
         Vector3 mousePosition = Mouse3D.GetMouseWorldPosition();
         aimLineRenderer.SetPosition(1, mousePosition);
+
+        visual.transform.localPosition = mousePosition;
+
+        Vector3 direction = obj1.transform.position - visual.transform.localPosition;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 rotation = Quaternion.Lerp(visual.transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        visual.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
 
         if (Input.GetMouseButtonDown(0)) {
             grid.GetXZ(mousePosition, out int x, out int y);

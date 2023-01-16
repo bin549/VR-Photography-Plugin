@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
       public LayerMask groundMask;
       Vector3 velocity;
      private bool isGrounded;
+     public float rotateSpeed = 30;
 
     private void Update() {
          isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -26,6 +27,15 @@ public class PlayerMovement : MonoBehaviour
 Vector3 move = transform.right * x + transform.forward * z;
 controller.Move(move * speed * Time.deltaTime);
 
+if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.RotateAround(transform.position, Vector3.up, -rotateSpeed * 5 * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.RotateAround(transform.position, Vector3.up, rotateSpeed * 5 * Time.deltaTime);
+        }
 
 if(Input.GetButtonDown("Jump") && isGrounded)
         {
