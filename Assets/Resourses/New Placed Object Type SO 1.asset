@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76d2f0acb7083480daeb37dd812d9caf, type: 3}
-  m_Name: New Placed Object Type SO
+  m_Name: New Placed Object Type SO 1
   m_EditorClassIdentifier: 
-  nameString: sss
-  prefab: {fileID: 708165623819937938, guid: 97c163d83173840f5b6db3f80ea63388, type: 3}
-  visual: {fileID: 8551189761996216084, guid: af40ff70b8325428d8ed9043bf24c240, type: 3}
-  width: 1
-  height: 2
+  nameString: T1
+  prefab: {fileID: 2472721626021979981, guid: 1dcc43dbd2f8a432b940c604193d3c24, type: 3}
+  visual: {fileID: 7366872644261873772, guid: 9fd15681eaa154a8db399bd7c96310f9, type: 3}
