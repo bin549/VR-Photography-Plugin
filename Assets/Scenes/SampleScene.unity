@@ -405,6 +405,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rotateSpeed: 30
+  photoCapture: {fileID: 2054628714}
+  zoomSpeed: 0.2
+  playerCamera: {fileID: 963194227}
 --- !u!114 &101659791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1479,8 @@ MonoBehaviour:
   obj1: {fileID: 2125656353}
   obj2: {fileID: 2125656353}
   visualObj: {fileID: 0}
+  isBuildingHuman: 0
+  photoCapture: {fileID: 2054628714}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 3000
   playerBody: {fileID: 101659789}
+  photoCapture: {fileID: 2054628714}
 --- !u!1 &1040956723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1636164616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2899,6 +2905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photoDisplayArea: {fileID: 1051159336}
   photoFrame: {fileID: 417887480}
+  viewingPhoto: 0
   CameraFlash: {fileID: 141643255}
   flashTime: 0.2
   fadingAnimation: {fileID: 1051159338}
