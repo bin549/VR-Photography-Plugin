@@ -5,8 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Camera fpsCamera;
-     public float range = 15f;
-
+    public float range = 15f;
 
     private void Update()
     {
@@ -20,7 +19,7 @@ public class Shooting : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

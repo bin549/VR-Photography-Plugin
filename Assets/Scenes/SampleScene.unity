@@ -408,6 +408,7 @@ MonoBehaviour:
   photoCapture: {fileID: 2054628714}
   zoomSpeed: 0.2
   playerCamera: {fileID: 963194227}
+  defaultFieldOfView: 0
 --- !u!114 &101659791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2911,6 +2912,7 @@ MonoBehaviour:
   fadingAnimation: {fileID: 1051159338}
   cameraUI: {fileID: 1636164615}
   cameraAudio: {fileID: 72222631}
+  playerMovement: {fileID: 101659790}
 --- !u!1 &2102692477
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private Animator fadingAnimation;
     public GameObject cameraUI;
     [SerializeField] private AudioSource cameraAudio;
-    [SerializeField] private  PlayerMovement playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
 
     private void Start()
     {
@@ -27,12 +27,14 @@ public class PhotoCapture : MonoBehaviour
         {
             cameraUI.SetActive(!cameraUI.activeSelf);
         }
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             if (cameraUI.activeSelf)
             {
                 Cursor.lockState = CursorLockMode.None;
                 cameraUI.SetActive(false);
-                if (!viewingPhoto) {
+                if (!viewingPhoto)
+                {
                     StartCoroutine(CapturePhoto());
                 }
             }
@@ -40,12 +42,12 @@ public class PhotoCapture : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             playerMovement.ResetDefaultFieldOfView();
-            if (viewingPhoto) {
+            if (viewingPhoto)
+            {
                 RemovePhoto();
             }
         }
     }
-
 
     private IEnumerator CapturePhoto()
     {

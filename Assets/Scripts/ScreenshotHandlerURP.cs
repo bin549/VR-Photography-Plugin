@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class ScreenshotHandlerURP : MonoBehaviour {
+public class ScreenshotHandlerURP : MonoBehaviour
+{
     private bool takeScreenshot;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         RenderPipelineManager.endCameraRendering += RenderPipelineManager_endCameraRendering;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         RenderPipelineManager.endCameraRendering -= RenderPipelineManager_endCameraRendering;
     }
 
-    private void RenderPipelineManager_endCameraRendering(ScriptableRenderContext arg1, Camera arg2) {
-        if (takeScreenshot) {
+    private void RenderPipelineManager_endCameraRendering(ScriptableRenderContext arg1, Camera arg2)
+    {
+        if (takeScreenshot)
+        {
             takeScreenshot = false;
             int width = Screen.width;
             int height = Screen.height;
@@ -28,15 +33,18 @@ public class ScreenshotHandlerURP : MonoBehaviour {
         }
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.T)) {
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
             //ScreenCapture.CaptureScreenshot("GameScreenshot.png");
             //StartCoroutine(CoroutineScreenshot());
             takeScreenshot = true;
         }
     }
 
-    private IEnumerator CoroutineScreenshot() {
+    private IEnumerator CoroutineScreenshot()
+    {
         yield return new WaitForEndOfFrame();
         int width = Screen.width;
         int height = Screen.height;

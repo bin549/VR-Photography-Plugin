@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlacedObject : MonoBehaviour {
+public class PlacedObject : MonoBehaviour
+{
     // private PlacedObjectTypeSO placedObjectTypeSO;
     // private Vector2Int origin;
     // private PlacedObjectTypeSO.Dir dir;

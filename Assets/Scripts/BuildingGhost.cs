@@ -7,12 +7,14 @@ public class BuildingGhost : MonoBehaviour
     public Transform visual;
     private PlacedObjectTypeSO placedObjectTypeSO;
 
-    private void Start() {
+    private void Start()
+    {
         RefreshVisual();
         // GridBuildingSystem.Instance.OnSelectedChanged += Instance_OnSelectedChanged;
     }
 
-    private void Instance_OnSelectedChanged(object sender, System.EventArgs e) {
+    private void Instance_OnSelectedChanged(object sender, System.EventArgs e)
+    {
         RefreshVisual();
     }
     //
@@ -23,7 +25,8 @@ public class BuildingGhost : MonoBehaviour
     //     transform.rotation = Quaternion.Lerp(transform.rotation, GridBuildingSystem.Instance.GetPlacedObjectRotation(), Time.deltaTime * 15f);
     // }
     //
-    private void RefreshVisual() {
+    private void RefreshVisual()
+    {
         // if (visual != null) {
         //     Destroy(visual.gameObject);
         //     visual = null;

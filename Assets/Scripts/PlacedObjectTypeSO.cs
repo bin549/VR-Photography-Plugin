@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class PlacedObjectTypeSO : ScriptableObject {
+public class PlacedObjectTypeSO : ScriptableObject
+{
     // public static Dir GetNextDir(Dir dir) {
     //     switch (dir) {
     //         default:
@@ -20,7 +21,6 @@ public class PlacedObjectTypeSO : ScriptableObject {
     //     Up,
     //     Right,
     // }
-
     public string nameString;
     public Transform prefab;
     public Transform visual;
